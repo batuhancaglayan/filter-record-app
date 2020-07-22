@@ -7,7 +7,7 @@ This project created for filter mongodb collection (collection name "records"). 
 Under project root directory. Follow these steps.
 
 > - npm install
-- npm start
+> - npm start
 
 Server will up on 8080 port.
 
