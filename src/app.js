@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/record', recordsHandler);
+app.use('/records', recordsHandler);
 app.use('/api-docs', (req, res, next) => {
   swaggerDocument.host = req.get('host');
   req.swaggerDoc = swaggerDocument;
