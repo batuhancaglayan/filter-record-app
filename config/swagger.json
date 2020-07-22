@@ -23,7 +23,7 @@
     "application/json"
   ],
   "paths": {
-    "/record": {
+    "/records": {
       "post": {
         "tags": [
           "Filter Record Operations"
