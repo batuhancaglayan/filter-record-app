@@ -45,6 +45,6 @@ Start build bundle file on local.
 To deploy the app in a docker container, you have to follow these steps. (Default exported port is set to 8080 in Dockerfile. )
 
 > - npm run build
-- docker build -t filter-record-app .
-- docker run -p 8080:8080 filter-record-app
+> - docker build -t filter-record-app .
+> - docker run -p 8080:8080 filter-record-app
 
