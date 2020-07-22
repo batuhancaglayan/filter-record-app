@@ -11,4 +11,4 @@ RUN npm install
 COPY build build
 COPY config config
 EXPOSE 8080
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "launch" ]
