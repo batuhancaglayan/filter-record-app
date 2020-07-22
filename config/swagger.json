@@ -1,0 +1,144 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Record Filter Application",
+    "description": "This is the Record Filter Application API documentation."
+  },
+  "host": "",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Record Filter",
+      "description": "API for filtering the records in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/record": {
+      "post": {
+        "tags": [
+          "Filter Record Operations"
+        ],
+        "description": "Filters the records",
+        "parameters": [
+          {
+            "name": "request body",
+            "in": "body",
+            "required" : false,
+            "description": "Request params in body",
+            "schema": {
+              "$ref": "#/definitions/APIRequestBody"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties" : {
+                "code": {
+                  "type": "integer",
+                  "description" : "Result code"
+                },
+                "msg": {
+                  "type": "string",
+                  "description" : "Result message"
+                },
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Record"
+                  },
+                  "description" : "Filtered record array"
+                }
+              }
+            }
+          },
+          "400":{
+            "description": "Bad Request",
+            "schema": {
+              "type": "object",
+              "properties" : {
+                "code": {
+                  "type": "integer",
+                  "description" : "Result code"
+                },
+                "msg": {
+                  "type": "string",
+                  "description" : "Result message"
+                }
+              }
+            }
+          },
+          "500":{
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Record": {
+      "properties": {
+        "key": {
+          "type": "string",
+          "description" : "Record unique key"
+        },
+        "createdAt": {
+          "type": "string",
+          "format" : "date",
+          "description" : "Record creation date"
+        },
+        "totalCount": {
+          "type": "integer",
+          "description" : "Total count for record array"
+        }
+      }
+    },
+    "APIRequestBody":{
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "format" : "date",
+          "description" : "Start date for the record filter",
+          "example" : "2017-01-28"
+        },
+        "endDate": {
+          "type": "string",
+          "format" : "date",
+          "description" : "End date for the record filter",
+          "example" : "2018-01-29"
+        },
+        "minCount": {
+          "type": "integer",
+          "description" : "Min count for the record filter",
+          "example" : 100
+        },
+        "maxCount": {
+          "type": "integer",
+          "description" : "Max count for the record filter",
+          "example" : 160
+        }
+      }
+    },
+    "Records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Record"
+      }
+    }
+  }
+}
